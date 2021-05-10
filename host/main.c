@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
 		
 		printf("file read start");
 		//file read && encrypt
-		pt = fopen("plaintext.txt","r");
+		pt = fopen(argv[2],"r");
 		fseek(pt, 0, SEEK_END);
 		int size = ftell(pt);
 		fseek(pt, 0, SEEK_SET);
@@ -120,13 +120,13 @@ int main(int argc, char *argv[])
 
 		printf("========================Decryption========================\n");
 		
-		et = fopen("Ciphertext.txt","r");
+		et = fopen(argv[2],"r");
 		fscanf(et, "%s", ciphertext);
 		fclose(et);
 		printf("ciphertext : %s\n", ciphertext);
 		
 		printf("enc key read start\n");
-		ek = fopen("encrypt_key.txt", "r");
+		ek = fopen(argv[3], "r");
 		fscanf(ek, "%s", key);
 		fclose(ek);
 
